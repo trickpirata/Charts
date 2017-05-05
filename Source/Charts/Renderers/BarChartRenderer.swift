@@ -477,7 +477,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         
                         let rect = buffer.rects[bufferIndex]
                         
-                        let x = rect.origin.x + rect.size.width / 2.0
+                        let x = (rect.origin.x + rect.size.width / 2.0) + dataSet.xValueOffset
                         
                         // we still draw stacked bars, but there is one non-stacked in between
                         if vals == nil
