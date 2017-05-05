@@ -367,8 +367,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             let valueOffsetPlus: CGFloat = 4.5
             var posOffset: CGFloat
             var negOffset: CGFloat
-            let drawValueAboveBar = dataProvider.isDrawValueAboveBarEnabled
-            
+        
             for dataSetIndex in 0 ..< barData.dataSetCount
             {
                 guard let dataSet = dataSets[dataSetIndex] as? IBarChartDataSet else { continue }
@@ -379,6 +378,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 }
                 
                 let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
+                let drawValueAboveBar = dataSet.isDrawValueAboveBar
                 
                 // calculate the correct offset depending on the draw position of the value
                 let valueFont = dataSet.valueFont
