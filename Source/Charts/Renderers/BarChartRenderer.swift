@@ -477,7 +477,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         
                         let rect = buffer.rects[bufferIndex]
                         
-                        let x = rect.origin.x + rect.size.width / 2.0
+                        let x = (rect.origin.x + rect.size.width / 2.0) + dataSet.xValueOffset
                         
                         // we still draw stacked bars, but there is one non-stacked in between
                         if vals == nil
@@ -567,9 +567,8 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                             {
                                 let val = vals[k]
                                 let drawBelow = (val == 0.0 && negY == 0.0 && posY > 0.0) || val < 0.0
-                                let y = transformed[k].y + (drawBelow ? negOffset : posOffset)
-                                let yValue = y + dataSet.yValueOffset
-                                let xValue = x + dataSet.xValueOffset
+                                let y = transformed[k].y + (drawBelow ? negOffset : posOffset) + dataSet.yValueOffset
+        
                                 if !viewPortHandler.isInBoundsRight(x)
                                 {
                                     break
@@ -590,8 +589,8 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                             entry: e,
                                             dataSetIndex: dataSetIndex,
                                             viewPortHandler: viewPortHandler),
-                                        xPos: xValue,
-                                        yPos: yValue,
+                                        xPos: x,
+                                        yPos: y,
                                         font: valueFont,
                                         align: .center,
                                         color: dataSet.valueTextColorAt(colorIndex))
