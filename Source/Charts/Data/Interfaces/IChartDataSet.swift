@@ -275,4 +275,7 @@ public protocol IChartDataSet
     var yValueOffset: CGFloat { get set }
     
     var valueAlignment: NSTextAlignment { get set }
+    
+    var alignValueCenter: Bool { get set }
+    var isAlignValueCenter: Bool { get }
 }
