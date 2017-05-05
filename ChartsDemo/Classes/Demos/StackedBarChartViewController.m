@@ -126,7 +126,8 @@
     else
     {
         set1 = [[BarChartDataSet alloc] initWithValues:yVals label:@"Statistics Vienna 2014"];
-        
+        set1.drawValueAboveBar = YES;
+        set1.xValueOffset = -5.0f;
         set1.drawIconsEnabled = NO;
         
         set1.colors = @[ChartColorTemplates.material[0], ChartColorTemplates.material[1], ChartColorTemplates.material[2]];

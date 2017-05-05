@@ -367,8 +367,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             let valueOffsetPlus: CGFloat = 4.5
             var posOffset: CGFloat
             var negOffset: CGFloat
-            let drawValueAboveBar = dataProvider.isDrawValueAboveBarEnabled
-            
+        
             for dataSetIndex in 0 ..< barData.dataSetCount
             {
                 guard let dataSet = dataSets[dataSetIndex] as? IBarChartDataSet else { continue }
@@ -379,6 +378,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 }
                 
                 let isInverted = dataProvider.isInverted(axis: dataSet.axisDependency)
+                let drawValueAboveBar = dataSet.isDrawValueAboveBar
                 
                 // calculate the correct offset depending on the draw position of the value
                 let valueFont = dataSet.valueFont
@@ -568,7 +568,8 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 let val = vals[k]
                                 let drawBelow = (val == 0.0 && negY == 0.0 && posY > 0.0) || val < 0.0
                                 let y = transformed[k].y + (drawBelow ? negOffset : posOffset)
-                                
+                                let yValue = y + dataSet.yValueOffset
+                                let xValue = x + dataSet.xValueOffset
                                 if !viewPortHandler.isInBoundsRight(x)
                                 {
                                     break
@@ -589,8 +590,8 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                             entry: e,
                                             dataSetIndex: dataSetIndex,
                                             viewPortHandler: viewPortHandler),
-                                        xPos: x,
-                                        yPos: y,
+                                        xPos: xValue,
+                                        yPos: yValue,
                                         font: valueFont,
                                         align: .center,
                                         color: dataSet.valueTextColorAt(colorIndex))

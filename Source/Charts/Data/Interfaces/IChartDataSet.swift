@@ -263,4 +263,14 @@ public protocol IChartDataSet
     
     /// - returns: `true` if this data set is using valueColors multiple values.
     var isUsingCustomColorPerValue: Bool { get }
+    
+    /// Set each data set to draw unique label positions
+    var drawValueAboveBar: Bool { get set }
+    
+    /// - returns: `true` if this data set values drawValueAboveBar is true
+    var isDrawValueAboveBar: Bool { get }
+    
+    var xValueOffset: CGFloat { get set }
+    
+    var yValueOffset: CGFloat { get set }
 }

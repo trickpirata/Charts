@@ -15,7 +15,8 @@ import CoreGraphics
 
 open class ChartBaseDataSet: NSObject, IChartDataSet
 {
-    public required override init()
+
+   public required override init()
     {
         super.init()
         
@@ -399,6 +400,18 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
     {
         return useCustomColorPerValue
     }
+    
+    /// Set each data set to draw unique label positions
+    open var drawValueAboveBar = false
+    
+    /// - returns: `true` if this data set values drawValueAboveBar is true
+    open var isDrawValueAboveBar: Bool
+    {
+        return drawValueAboveBar
+    }
+    
+    open var xValueOffset: CGFloat = 0.0
+    open var yValueOffset: CGFloat = 0.0
     
     // MARK: - NSObject
     
