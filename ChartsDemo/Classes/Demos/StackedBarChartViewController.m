@@ -127,8 +127,10 @@
     {
         set1 = [[BarChartDataSet alloc] initWithValues:yVals label:@"Statistics Vienna 2014"];
         set1.drawValueAboveBar = YES;
-        set1.xValueOffset = -5.0f;
+//        set1.axisDependency = AxisDependencyRight;
+        set1.xValueOffset = 1000.0f;
         set1.drawIconsEnabled = NO;
+        set1.valueTextColor = [UIColor redColor];
         
         set1.colors = @[ChartColorTemplates.material[0], ChartColorTemplates.material[1], ChartColorTemplates.material[2]];
         set1.stackLabels = @[@"Births", @"Divorces", @"Marriages"];
@@ -145,6 +147,7 @@
         [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
         [data setValueFormatter:[[ChartDefaultValueFormatter alloc] initWithFormatter:formatter]];
         [data setValueTextColor:UIColor.whiteColor];
+        
         
         _chartView.fitBars = YES;
         _chartView.data = data;
