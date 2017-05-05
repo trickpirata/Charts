@@ -412,6 +412,7 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
     
     open var xValueOffset: CGFloat = 0.0
     open var yValueOffset: CGFloat = 0.0
+    open var valueAlignment: NSTextAlignment = .center
     
     // MARK: - NSObject
     

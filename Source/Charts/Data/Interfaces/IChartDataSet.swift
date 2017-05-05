@@ -273,4 +273,6 @@ public protocol IChartDataSet
     var xValueOffset: CGFloat { get set }
     
     var yValueOffset: CGFloat { get set }
+    
+    var valueAlignment: NSTextAlignment { get set }
 }

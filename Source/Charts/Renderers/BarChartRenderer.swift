@@ -477,7 +477,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         
                         let rect = buffer.rects[bufferIndex]
                         
-                        let x = (rect.origin.x + rect.size.width / 2.0) + dataSet.xValueOffset
+                        let x = rect.origin.x + dataSet.xValueOffset
                         
                         // we still draw stacked bars, but there is one non-stacked in between
                         if vals == nil
@@ -506,7 +506,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                     yPos: rect.origin.y +
                                         (e.y >= 0 ? posOffset : negOffset),
                                     font: valueFont,
-                                    align: .center,
+                                    align: dataSet.valueAlignment,
                                     color: dataSet.valueTextColorAt(index))
                             }
                             
@@ -567,7 +567,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                             {
                                 let val = vals[k]
                                 let drawBelow = (val == 0.0 && negY == 0.0 && posY > 0.0) || val < 0.0
-                                let y = transformed[k].y + (drawBelow ? negOffset : posOffset)
+                                let y = transformed[k].y + (drawBelow ? negOffset : posOffset) + dataSet.yValueOffset
                                 
                                 if !viewPortHandler.isInBoundsRight(x)
                                 {
@@ -592,7 +592,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                         xPos: x,
                                         yPos: y,
                                         font: valueFont,
-                                        align: .center,
+                                        align: dataSet.valueAlignment,
                                         color: dataSet.valueTextColorAt(colorIndex))
                                 }
                                 

@@ -146,7 +146,7 @@
         BarChartData *data = [[BarChartData alloc] initWithDataSets:dataSets];
         [data setValueFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:7.f]];
         [data setValueFormatter:[[ChartDefaultValueFormatter alloc] initWithFormatter:formatter]];
-        [data setValueTextColor:UIColor.whiteColor];
+        [data setValueTextColor:UIColor.blackColor];
         
         
         _chartView.fitBars = YES;
