@@ -347,12 +347,6 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 }
             }
             
-            if drawBorder
-            {
-                context.setStrokeColor(borderColor.cgColor)
-                context.setLineWidth(borderWidth)
-                context.stroke(barRect)
-            }
         }
         
         context.restoreGState()

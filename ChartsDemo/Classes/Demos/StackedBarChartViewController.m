@@ -45,7 +45,6 @@
                     ];
     
     _chartView.delegate = self;
-    _chartView.drawRoundedBarEnabled = YES;
     _chartView.chartDescription.enabled = NO;
     
     _chartView.maxVisibleCount = 40;
@@ -127,6 +126,7 @@
     {
         set1 = [[BarChartDataSet alloc] initWithValues:yVals label:@"Statistics Vienna 2014"];
         set1.drawValueAboveBar = YES;
+    
 //        set1.axisDependency = AxisDependencyRight;
         set1.xValueOffset = 1000.0f;
         set1.drawIconsEnabled = NO;
