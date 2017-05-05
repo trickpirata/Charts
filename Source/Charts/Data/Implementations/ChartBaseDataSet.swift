@@ -410,11 +410,19 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
         return drawValueAboveBar
     }
     
+    /// X offset for bar value labels. Default is 0
     open var xValueOffset: CGFloat = 0.0
+    
+    /// Y offset for bar value labels. Default is 0
     open var yValueOffset: CGFloat = 0.0
+    
+    /// Text alignment for bar value labels. Default is Center
     open var valueAlignment: NSTextAlignment = .center
     
+    /// If set to yes, the X value will be divided to the bar's width. Default is YES
     open var alignValueCenter: Bool = true
+    
+    /// -returns: `true` if values needs to be centered.
     open var isAlignValueCenter: Bool {
         return alignValueCenter
     }

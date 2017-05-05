@@ -270,12 +270,18 @@ public protocol IChartDataSet
     /// - returns: `true` if this data set values drawValueAboveBar is true
     var isDrawValueAboveBar: Bool { get }
     
+    /// X offset for bar value labels. Default is 0
     var xValueOffset: CGFloat { get set }
     
+    /// Y offset for bar value labels. Default is 0
     var yValueOffset: CGFloat { get set }
     
+    /// Text alignment for bar value labels. Default is Center
     var valueAlignment: NSTextAlignment { get set }
     
+    /// If set to yes, the X value will be divided to the bar's width. Default is YES
     var alignValueCenter: Bool { get set }
+    
+    /// -returns: `true` if values needs to be centered.
     var isAlignValueCenter: Bool { get }
 }

@@ -22,6 +22,9 @@ open class CombinedChartRenderer: DataRenderer
     /// if set to true, a grey area is drawn behind each bar that indicates the maximum value
     open var drawBarShadowEnabled = false
     
+    /// if set to true, a rounded rectangle with the corners is drawn on each bar
+    open var drawRoundedBarEnabled = false
+    
     internal var _renderers = [DataRenderer]()
     
     internal var _drawOrder: [CombinedChartView.DrawOrder] = [.bar, .bubble, .line, .candle, .scatter]
@@ -45,7 +48,7 @@ open class CombinedChartRenderer: DataRenderer
             let animator = animator,
             let viewPortHandler = self.viewPortHandler
             else { return }
-
+        
         for order in drawOrder
         {
             switch (order)
@@ -86,7 +89,7 @@ open class CombinedChartRenderer: DataRenderer
                 break
             }
         }
-
+        
     }
     
     open override func initBuffers()
@@ -155,7 +158,7 @@ open class CombinedChartRenderer: DataRenderer
             renderer.drawHighlighted(context: context, indices: dataIndices)
         }
     }
-
+    
     /// - returns: The sub-renderer object at the specified index.
     open func getSubRenderer(index: Int) -> DataRenderer?
     {
@@ -168,10 +171,10 @@ open class CombinedChartRenderer: DataRenderer
             return _renderers[index]
         }
     }
-
+    
     /// - returns: All sub-renderers.
     open var subRenderers: [DataRenderer]
-    {
+        {
         get { return _renderers }
         set { _renderers = newValue }
     }
@@ -188,7 +191,7 @@ open class CombinedChartRenderer: DataRenderer
     /// The earlier you place them in the provided array, the further they will be in the background.
     /// e.g. if you provide [DrawOrder.Bar, DrawOrder.Line], the bars will be drawn behind the lines.
     open var drawOrder: [CombinedChartView.DrawOrder]
-    {
+        {
         get
         {
             return _drawOrder

@@ -17,9 +17,12 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
 {
     /// if set to true, all values are drawn above their bars, instead of below their top
     fileprivate var _drawValueAboveBarEnabled = true
-
+    
     /// if set to true, a grey area is drawn behind each bar that indicates the maximum value
     fileprivate var _drawBarShadowEnabled = false
+    
+    /// if set to true, a rounded rectangle with the corners is drawn on each bar
+    fileprivate var _drawRoundedBarEnabled = false
     
     internal override func initialize()
     {
@@ -81,7 +84,7 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
             stackIndex: -1,
             axis: h.axis)
     }
-        
+    
     /// - returns: The bounding box of the specified Entry in the specified DataSet. Returns null if the Entry could not be found in the charts data.
     open func getBarBounds(entry e: BarChartDataEntry) -> CGRect
     {
@@ -135,12 +138,12 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     {
         highlightValue(Highlight(x: x, dataSetIndex: dataSetIndex, stackIndex: stackIndex))
     }
-
+    
     // MARK: Accessors
     
     /// if set to true, all values are drawn above their bars, instead of below their top
     open var drawValueAboveBarEnabled: Bool
-    {
+        {
         get { return _drawValueAboveBarEnabled }
         set
         {
@@ -151,11 +154,22 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     
     /// if set to true, a grey area is drawn behind each bar that indicates the maximum value
     open var drawBarShadowEnabled: Bool
-    {
+        {
         get { return _drawBarShadowEnabled }
         set
         {
             _drawBarShadowEnabled = newValue
+            setNeedsDisplay()
+        }
+    }
+    
+    /// if set to true, a rounded rectangle with the corners is drawn on each bar
+    open var drawRoundedBarEnabled: Bool
+        {
+        get { return _drawRoundedBarEnabled }
+        set
+        {
+            _drawRoundedBarEnabled = newValue
             setNeedsDisplay()
         }
     }
@@ -180,4 +194,7 @@ open class BarChartView: BarLineChartViewBase, BarChartDataProvider
     
     /// - returns: `true` if drawing shadows (maxvalue) for each bar is enabled, `false` ifnot
     open var isDrawBarShadowEnabled: Bool { return drawBarShadowEnabled }
+    
+    /// - returns: `true` if drawing rounded bars is enabled, `false` ifnot
+    open var isDrawRoundedBarEnabled: Bool { return drawRoundedBarEnabled }
 }

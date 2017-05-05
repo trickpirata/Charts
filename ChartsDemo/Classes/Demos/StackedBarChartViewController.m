@@ -45,7 +45,7 @@
                     ];
     
     _chartView.delegate = self;
-    
+    _chartView.drawRoundedBarEnabled = YES;
     _chartView.chartDescription.enabled = NO;
     
     _chartView.maxVisibleCount = 40;
