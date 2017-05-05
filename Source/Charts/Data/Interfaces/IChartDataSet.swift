@@ -257,4 +257,10 @@ public protocol IChartDataSet
     
     /// - returns: `true` if this DataSet is visible inside the chart, or `false` ifit is currently hidden.
     var isVisible: Bool { get }
+    
+    /// Set to true if you want to use custom colors per value label -- use valueColors
+    var useCustomColorPerValue: Bool { get set }
+    
+    /// - returns: `true` if this data set is using valueColors multiple values.
+    var isUsingCustomColorPerValue: Bool { get }
 }

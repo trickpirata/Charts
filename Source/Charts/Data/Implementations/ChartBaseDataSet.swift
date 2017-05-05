@@ -390,6 +390,16 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
         return visible
     }
     
+    /// Set to true if you want to use custom colors per value label -- use valueColors
+    open var useCustomColorPerValue = false
+    
+    
+    /// - returns: `true` if this data set is using valueColors multiple values.
+    open var isUsingCustomColorPerValue: Bool
+    {
+        return useCustomColorPerValue
+    }
+    
     // MARK: - NSObject
     
     open override var description: String

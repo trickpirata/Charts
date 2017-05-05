@@ -581,6 +581,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 
                                 if dataSet.isDrawValuesEnabled
                                 {
+                                    let colorIndex = dataSet.isUsingCustomColorPerValue ? k : index
                                     drawValue(
                                         context: context,
                                         value: formatter.stringForValue(
@@ -592,7 +593,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                         yPos: y,
                                         font: valueFont,
                                         align: .center,
-                                        color: dataSet.valueTextColorAt(index))
+                                        color: dataSet.valueTextColorAt(colorIndex))
                                 }
                                 
                                 if let icon = e.icon, dataSet.isDrawIconsEnabled
