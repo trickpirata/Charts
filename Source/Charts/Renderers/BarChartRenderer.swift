@@ -502,7 +502,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                         
                         var x = rect.origin.x + dataSet.xValueOffset
                         
-                        if dataSet.alignValueCenter {
+                        if dataSet.alignXValueCenter {
                             x += rect.size.width / 2.0
                         }
                         
@@ -594,7 +594,12 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                             {
                                 let val = vals[k]
                                 let drawBelow = (val == 0.0 && negY == 0.0 && posY > 0.0) || val < 0.0
-                                let y = transformed[k].y + (drawBelow ? negOffset : posOffset) + dataSet.yValueOffset
+                                var y = transformed[k].y + (drawBelow ? negOffset : posOffset) + dataSet.yValueOffset
+                                
+                                if dataSet.alignYValueCenter {
+                                    y += rect.size.width / 2.0
+                                }
+
                                 
                                 if !viewPortHandler.isInBoundsRight(x)
                                 {

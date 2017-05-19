@@ -280,8 +280,14 @@ public protocol IChartDataSet
     var valueAlignment: NSTextAlignment { get set }
     
     /// If set to yes, the X value will be divided to the bar's width. Default is YES
-    var alignValueCenter: Bool { get set }
+    var alignXValueCenter: Bool { get set }
     
     /// -returns: `true` if values needs to be centered.
-    var isAlignValueCenter: Bool { get }
+    var isAlignXValueCenter: Bool { get }
+    
+    /// If set to yes, the Y value will be divided to the bar's width. Default is YES
+    var alignYValueCenter: Bool { get set }
+    
+    /// -returns: `true` if values needs to be centered.
+    var isAlignYValueCenter: Bool { get }
 }

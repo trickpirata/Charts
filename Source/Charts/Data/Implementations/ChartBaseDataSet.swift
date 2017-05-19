@@ -420,11 +420,19 @@ open class ChartBaseDataSet: NSObject, IChartDataSet
     open var valueAlignment: NSTextAlignment = .center
     
     /// If set to yes, the X value will be divided to the bar's width. Default is YES
-    open var alignValueCenter: Bool = true
+    open var alignXValueCenter: Bool = true
     
     /// -returns: `true` if values needs to be centered.
-    open var isAlignValueCenter: Bool {
-        return alignValueCenter
+    open var isAlignXValueCenter: Bool {
+        return alignXValueCenter
+    }
+    
+    /// If set to yes, the Y value will be divided to the bar's width. Default is YES
+    open var alignYValueCenter: Bool = true
+    
+    /// -returns: `true` if values needs to be centered.
+    open var isAlignYValueCenter: Bool {
+        return alignYValueCenter
     }
     
     // MARK: - NSObject
