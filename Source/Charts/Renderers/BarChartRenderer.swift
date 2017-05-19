@@ -594,9 +594,13 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                             {
                                 let val = vals[k]
                                 let drawBelow = (val == 0.0 && negY == 0.0 && posY > 0.0) || val < 0.0
-                                let transformedY = dataSet.alignYValueCenter ? transformed[k].y / 2.0 : transformed[k].y
-                                let y = transformedY + (drawBelow ? negOffset : posOffset) + dataSet.yValueOffset
-                            
+                                var y = transformed[k].y + (drawBelow ? negOffset : posOffset) + dataSet.yValueOffset
+                                
+                                if dataSet.alignYValueCenter {
+                                    y -= transformed[k].y / 2.0
+                                }
+
+                                
                                 if !viewPortHandler.isInBoundsRight(x)
                                 {
                                     break
