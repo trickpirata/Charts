@@ -597,7 +597,8 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 var y = transformed[k].y + (drawBelow ? negOffset : posOffset) + dataSet.yValueOffset
                                 
                                 if dataSet.alignYValueCenter {
-                                    y = transformed[k].y + (rect.size.height / 2.0) + dataSet.yValueOffset
+                                    let rectPerBar = buffer.rects[bufferIndex + k]
+                                    y = rectPerBar.midY + dataSet.yValueOffset
                                 }
                                
                                 
