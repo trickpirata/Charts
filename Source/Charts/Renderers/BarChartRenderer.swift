@@ -604,13 +604,11 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                 
                                 if !viewPortHandler.isInBoundsRight(x)
                                 {
-                                    print("bound right")
                                     break
                                 }
                                 
                                 if !viewPortHandler.isInBoundsLeft(x)
                                 {
-                                    print("bound left")
                                     continue
                                 }
                                 
