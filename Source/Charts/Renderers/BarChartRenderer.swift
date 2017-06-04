@@ -607,7 +607,7 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                                     break
                                 }
                                 
-                                if !viewPortHandler.isInBoundsY(y) || !viewPortHandler.isInBoundsLeft(x)
+                                if !viewPortHandler.isInBoundsLeft(x)
                                 {
                                     continue
                                 }
