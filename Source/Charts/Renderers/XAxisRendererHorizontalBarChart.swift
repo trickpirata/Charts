@@ -186,6 +186,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
 //            {
                 if let label = xAxis.valueFormatter?.stringForValue(xAxis.entries[i], axis: xAxis)
                 {
+                    print(label)
                     drawLabel(
                         context: context,
                         formattedLabel: label,
