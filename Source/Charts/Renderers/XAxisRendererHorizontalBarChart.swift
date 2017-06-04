@@ -182,8 +182,8 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
             
             transformer.pointValueToPixel(&position)
             
-            if viewPortHandler.isInBoundsY(position.y)
-            {
+//            if viewPortHandler.isInBoundsY(position.y)
+//            {
                 if let label = xAxis.valueFormatter?.stringForValue(xAxis.entries[i], axis: xAxis)
                 {
                     drawLabel(
@@ -195,7 +195,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
                         anchor: anchor,
                         angleRadians: labelRotationAngleRadians)
                 }
-            }
+//            }
         }
     }
     
